@@ -1,0 +1,1 @@
+This code show how to setup a node application with mongoose and connect it to a mongoDB server.
