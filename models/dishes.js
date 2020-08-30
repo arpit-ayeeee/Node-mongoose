@@ -1,9 +1,24 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// const commentSchema = new Schema({
-
-// });
+const commentSchema = new Schema({
+    rating: {
+        type: Number,
+         min: 1,
+         max: 5,
+         required: true
+    },
+    comment: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: String,
+        required: true
+    }
+},{
+    timestamps: true
+});
 const dishSchema = new Schema({
     name: {
         type: String,
@@ -14,7 +29,7 @@ const dishSchema = new Schema({
         type: String,
         required: true
     },
-    comments : []
+    comments: [ commentSchema ]         //This will have an array for comments, for which there will be comentSchema for for each
 },{
     timestamps: true                    //This will add created at and updated at, two timstamps to each doc stored in here.
 });
