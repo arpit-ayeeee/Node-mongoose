@@ -7,12 +7,11 @@ const connect = mongoose.connect(url);      //mongoose supports connect method w
 connect.then((db) => {                      //Then we'll perform operations using schema
     console.log("Connected correctly to server!");
 
-    //Now we'll call the schema and input the two parameters
-    var newDish = Dishes({
+    //Now we'll call the schema, create dishes and input the two parameters
+    Dishes.create({
         name: 'Uthapizza',
         description: 'test'
-    });
-    newDish.save()                          //then we'll save it
+    })                         //then we'll save it
     .then((dish) => {                       //and later we'll display it
         console.log(dish);
         
